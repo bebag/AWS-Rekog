@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="FirePlaceReKog" ng-controller="WebcamController as ctrl">
+<head>
+<title>Face Rekognition</title>
+</head>
+<body>
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+        <script type="text/javascript" src="/js/webcam.min.js"></script>
+        <script type="text/javascript" src="/js/FirePlaceReKog.js"></script>
+
+        <div id="webcam"  ng-if="ctrl.showweb">
+                    <webcam channel="ctrl.webcam.channel"
+                            on-streaming="ctrl.webcam.onSuccess()"
+                            on-error="ctrl.webcam.onError(err)"
+                            on-stream="ctrl.webcam.onStream(stream)"></webcam>
+                    <button class="btn btn-default" type="button" ng-click="ctrl.webcam.makeSnapshot()">Capture</button>
+                    <canvas id="snapshot" width="320" height="240" ng-hide="true" ></canvas>
+        </div>
+        <img data-ng-src="{{'data:' + ctrl.fotoContentType+ ';base64,' + ctrl.photo}}" style="max-height: 100px;" ng-if="ctrl.photo"/>  
+        <div id="WebcamOn" ng-if="ctrl.webcamOn === 0">
+                    <button class="btn btn-default" type="button" ng-click="ctrl.turnOnWebCam()">Turn On</button>
+       </div>
+       <div id="WebcamOff" ng-if="ctrl.webcamOn === 1">
+                    <button class="btn btn-default" type="button" ng-click="ctrl.turnOffWebCam()">Turn Off</button>
+       </div>
+       <div id="Register" ng-if="ctrl.photo">
+                    <input type="text" ng-model="ctrl.name">
+                    <button class="btn btn-default" type="button" ng-click="ctrl.register()">Register</button>
+       </div>
+</body>
+</html>
