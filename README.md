@@ -25,8 +25,12 @@
 
    5. npm install webcamjs
 
-   6. git clone
+   6. npm install nodemon
 
-   7. ​use the "start" script to launch the web server (nodejs)
+   7. git clone
 
-   8. don't forget to open port 8888 …. web page available on https://<IP>:8888
+   8. ​use the "start" script to launch the web server (nodejs)
+
+   9. you might have to create the "images" directory in the static one (as I've removed the images from github)
+
+   10. don't forget to open port 8888 …. web page available on https://<IP>:8888
